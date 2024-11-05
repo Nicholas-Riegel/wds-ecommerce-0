@@ -1,0 +1,8 @@
+1. npx create-next-app@latest wds-ecommerce-0
+2. npm i --save-dev ts-node (
+    this was the only dependency we didn't have that prisma wanted
+3. npm install prisma --save-dev
+4. npx prisma init --datasource-provider sqlite
+5. npx prisma migrate dev --name init
+    this was for after the models were written
+6. then he wanted to install shadcn which is a tailwind library with components
