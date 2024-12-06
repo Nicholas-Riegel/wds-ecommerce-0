@@ -40,8 +40,8 @@ model Order {
   
   userId                  String
   productId               String
-  user                    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  product                 Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  user                    User   @relation(fields: [userId], references: [id], onDelete: Cascade) // this is to delete the order if the user is deleted. Once you do this, you also have to add orders to the User model
+  product                 Product @relation(fields: [productId], references: [id], onDelete: Restrict) // this is to not delete the order if the product is deleted. Once you do this, you also have to add orders to the Product model
 }
 
 model DownloadVerification {
@@ -49,5 +49,5 @@ model DownloadVerification {
   createdAt               DateTime @default(now())
   expiresAt               DateTime
   productId               String
-  product                 Product @relation(fields: [productId], references: [id], onDelete: Cascade) //if delete a product, delete the verification links as well
+  product                 Product @relation(fields: [productId], references: [id], onDelete: Cascade) //if delete a product, delete the DownloadVerification as well
 }
